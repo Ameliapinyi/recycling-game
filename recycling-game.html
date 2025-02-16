@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>回收分類遊戲</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>回收分類遊戲</h1>
+    <p>請將垃圾拖曳到正確的回收桶</p>
+
+    <div class="game-container">
+        <!-- 可拖曳的垃圾 -->
+        <img src="plastic-bottle.png" class="draggable" id="plastic" draggable="true">
+        <img src="paper.png" class="draggable" id="paper" draggable="true">
+
+        <!-- 回收桶 -->
+        <div class="bin" id="plastic-bin">塑膠回收</div>
+        <div class="bin" id="paper-bin">紙類回收</div>
+    </div>
+
+    <p id="result"></p>
+    <script src="script.js"></script>
+</body>
+</html>

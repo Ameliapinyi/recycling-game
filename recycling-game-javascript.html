@@ -1,0 +1,29 @@
+const items = document.querySelectorAll('.draggable');
+const bins = document.querySelectorAll('.bin');
+
+items.forEach(item => {
+    item.addEventListener('dragstart', (e) => {
+        e.dataTransfer.setData("text", e.target.id);
+    });
+});
+
+bins.forEach(bin => {
+    bin.addEventListener('dragover', (e) => {
+        e.preventDefault();
+    });
+
+    bin.addEventListener('drop', (e) => {
+        e.preventDefault();
+        let draggedItem = e.dataTransfer.getData("text");
+        let binId = e.target.id;
+
+        if ((draggedItem === "plastic" && binId === "plastic-bin") ||
+            (draggedItem === "paper" && binId === "paper-bin")) {
+            document.getElementById("result").textContent = "正確！";
+            e.target.style.backgroundColor = "lightgreen";
+        } else {
+            document.getElementById("result").textContent = "錯誤，請再試一次！";
+            e.target.style.backgroundColor = "lightcoral";
+        }
+    });
+});
